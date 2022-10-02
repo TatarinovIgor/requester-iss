@@ -12,6 +12,7 @@ def output():
     response = urllib.request.urlopen(url)
     resp = flask.Response(urllib.request.urlopen(url))
     resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers['Content-Type'] = 'application/json'
     return resp
 
 
