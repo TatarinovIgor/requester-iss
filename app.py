@@ -1,5 +1,7 @@
 import urllib.request
-from flask import Flask, render_template
+
+import flask
+from flask import Flask, render_template, Response
 
 app = Flask(__name__)
 
@@ -8,8 +10,9 @@ app = Flask(__name__)
 def output():
     url = "http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(url)
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
+    resp = flask.Response(urllib.request.urlopen(url))
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 
 if __name__ == "__main__":
