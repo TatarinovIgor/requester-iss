@@ -6,7 +6,7 @@ app = Flask(__name__, )
 
 @app.route('/')
 def output():
-    url = "http://api.open-notify.org/iss-now.json"
+    url = "http://api.open-notify.org/iss-now.json?callback="
     response = urllib.request.urlopen(url)
     return response
 
